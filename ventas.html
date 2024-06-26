@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Control de Ventas - Partido de Futbol</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        input, button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Control de Ventas - Partido de Futbol</h1>
+    <form id="ticketForm">
+        <label for="factura">Número de Factura:</label>
+        <input type="text" id="factura" required><br>
+        <label for="cedula">Cédula:</label>
+        <input type="text" id="cedula" required><br>
+        <label for="nombre">Nombre del Comprador:</label>
+        <input type="text" id="nombre" required><br>
+        <label for="localidad">Localidad (1-Sol Norte/Sur, 2-Sombra Este/Oeste, 3-Preferencial):</label>
+        <input type="number" id="localidad" min="1" max="3" required><br>
+        <label for="cantidad">Cantidad de Entradas (máximo 4):</label>
+        <input type="number" id="cantidad" min="1" max="4" required><br>
+        <button type="button" onclick="agregarVenta()">Agregar Venta</button>
+    </form>
+
+    <h2>Ventas Registradas</h2>
+    <pre id="ventas"></pre>
+
+    <h2>Estadísticas</h2>
+    <pre id="estadisticas"></pre>
+
+    <script>
+        const ventas = [];
+
+        function agregarVenta() {
+            const factura = document.getElementById('factura').value;
+            const cedula = document.getElementById('cedula').value;
+            const nombre = document.getElementById('nombre').value;
+            const localidad = parseInt(document.getElementById('localidad').value);
+            const cantidad = parseInt(document.getElementById('cantidad').value);
+
+            let precioEntrada, nombreLocalidad;
+
+            switch (localidad) {
+                case 1:
+                    precioEntrada = 10500;
+                    nombreLocalidad = "Sol Norte/Sur";
+                    break;
+                case 2:
+                    precioEntrada = 20500;
+                    nombreLocalidad = "Sombra Este/Oeste";
+                    break;
+                case 3:
+                    precioEntrada = 25500;
+                    nombreLocalidad = "Preferencial";
+                    break;
+                default:
+                    alert("Localidad no válida");
+                    return;
+            }
+
+            const subtotal = cantidad * precioEntrada;
+            const cargosPorServicios = cantidad * 1000;
+            const total = subtotal + cargosPorServicios;
+
+            ventas.push({ factura, cedula, nombre, nombreLocalidad, cantidad, subtotal, cargosPorServicios, total });
+
+            mostrarVentas();
+            mostrarEstadisticas();
+        }
+
+        function mostrarVentas() {
+            const ventasElement = document.getElementById('ventas');
+            ventasElement.innerHTML = '';
+
+            ventas.forEach(venta => {
+                ventasElement.innerHTML += `
+                    Número de Factura: ${venta.factura}
+                    Cédula: ${venta.cedula}
+                    Nombre: ${venta.nombre}
+                    Localidad: ${venta.nombreLocalidad}
+                    Cantidad de Entradas: ${venta.cantidad}
+                    Subtotal: ${venta.subtotal.toFixed(2)}
+                    Cargos por Servicios: ${venta.cargosPorServicios.toFixed(2)}
+                    Total a Pagar: ${venta.total.toFixed(2)}
+                    --------------------------------
+                `;
+            });
+        }
+
+        function mostrarEstadisticas() {
+            const estadisticasElement = document.getElementById('estadisticas');
+            estadisticasElement.innerHTML = '';
+
+            let cantidadSol = 0, acumuladoSol = 0;
+            let cantidadSombra = 0, acumuladoSombra = 0;
+            let cantidadPreferencial = 0, acumuladoPreferencial = 0;
+
+            ventas.forEach(venta => {
+                switch (venta.nombreLocalidad) {
+                    case "Sol Norte/Sur":
+                        cantidadSol += venta.cantidad;
+                        acumuladoSol += venta.subtotal;
+                        break;
+                    case "Sombra Este/Oeste":
+                        cantidadSombra += venta.cantidad;
+                        acumuladoSombra += venta.subtotal;
+                        break;
+                    case "Preferencial":
+                        cantidadPreferencial += venta.cantidad;
+                        acumuladoPreferencial += venta.subtotal;
+                        break;
+                }
+            });
+
+            estadisticasElement.innerHTML += `
+                Estadísticas:
+                Cantidad de Entradas Localidad Sol Norte/Sur: ${cantidadSol}
+                Acumulado Dinero Localidad Sol Norte/Sur: ${acumuladoSol.toFixed(2)}
+
+                Cantidad de Entradas Localidad Sombra Este/Oeste: ${cantidadSombra}
+                Acumulado Dinero Localidad Sombra Este/Oeste: ${acumuladoSombra.toFixed(2)}
+
+                Cantidad de Entradas Localidad Preferencial: ${cantidadPreferencial}
+                Acumulado Dinero Localidad Preferencial: ${acumuladoPreferencial.toFixed(2)}
+            `;
+        }
+    </script>
+</body>
+</html>
