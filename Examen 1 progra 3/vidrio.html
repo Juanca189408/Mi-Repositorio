@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reciclaje de Vidrio</title>
+    <link rel="stylesheet" href="vidrio.css">
+</head>
+
+<body>
+    <a href="reciclaje.html"><button> Reciclaje </button></a>
+    <h1>Objetos permitidos para ingresar</h1>
+    <p>
+        Botellas de vidrio<br>
+        Frascos de vidrio<br>
+        Tarros de alimentos<br>
+    </p>
+    <h1>Reciclaje de Vidrio</h1>
+    <form id="formulario">
+        <label for="nombre">Nombre del Objeto:</label>
+        <select id="nombre" required>
+            <option value="">Seleccione un objeto</option>
+            <option value="Botellas de vidrio" data-valor="500">Botellas de vidrio</option>
+            <option value="Frascos de vidrio" data-valor="300">Frascos de vidrio</option>
+            <option value="Tarros de alimentos" data-valor="200">Tarros de alimentos</option>
+        </select>
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" required>
+        <button type="button" onclick="agregarObjeto()">Agregar</button>
+    </form>
+
+    <table id="tabla">
+        <thead>
+            <tr>
+                <th>Nombre del Objeto</th>
+                <th>Cantidad</th>
+                <th>Valor</th>
+                <th>Total</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody id="cuerpo-tabla">
+
+        </tbody>
+    </table>
+
+    <script>
+        function agregarObjeto() {
+            var nombre = document.getElementById("nombre").value;
+            var cantidad = parseInt(document.getElementById("cantidad").value);
+            var valor = parseInt(document.querySelector('#nombre option:checked').dataset.valor);
+            var total = cantidad * valor;
+            var fila = document.createElement("tr");
+
+            if (!nombre || isNaN(cantidad)) {
+                alert("Por favor, seleccione un objeto de vidrio válido y especifique una cantidad válida.");
+                return;
+            }
+
+            var celdaNombre = document.createElement("td");
+            celdaNombre.textContent = nombre;
+            var celdaCantidad = document.createElement("td");
+            celdaCantidad.textContent = cantidad;
+            var celdaValor = document.createElement("td");
+            celdaValor.textContent = valor;
+            var celdaTotal = document.createElement("td");
+            celdaTotal.textContent = total;
+
+            var celdaEliminar = document.createElement("td");
+            var botonEliminar = document.createElement("button");
+            botonEliminar.textContent = "Eliminar";
+            botonEliminar.addEventListener("click", function () {
+                eliminarFila(fila);
+            });
+            celdaEliminar.appendChild(botonEliminar);
+
+            fila.appendChild(celdaNombre);
+            fila.appendChild(celdaCantidad);
+            fila.appendChild(celdaValor);
+            fila.appendChild(celdaTotal);
+            fila.appendChild(celdaEliminar);
+
+            document.getElementById("cuerpo-tabla").appendChild(fila);
+
+            var objeto = {
+                nombre: nombre,
+                cantidad: cantidad,
+                valor: valor,
+                total: total
+            };
+
+            var objetosGuardados = JSON.parse(localStorage.getItem("objetos")) || [];
+            objetosGuardados.push(objeto);
+            localStorage.setItem("objetos", JSON.stringify(objetosGuardados));
+
+            document.getElementById("nombre").selectedIndex = 0;
+            document.getElementById("cantidad").value = "";
+        }
+
+        function eliminarFila(fila) {
+            fila.remove();
+
+            var nombre = fila.children[0].textContent; 
+            var objetosGuardados = JSON.parse(localStorage.getItem("objetos")) || [];
+
+           
+            objetosGuardados = objetosGuardados.filter(function (objeto) {
+                return objeto.nombre !== nombre;
+            });
+
+      
+            localStorage.setItem("objetos", JSON.stringify(objetosGuardados));
+        }
+
+        window.onload = function () {
+            var objetosGuardados = JSON.parse(localStorage.getItem("objetos")) || [];
+            var cuerpoTabla = document.getElementById("cuerpo-tabla");
+
+            objetosGuardados.forEach(function (objeto) {
+                var fila = document.createElement("tr");
+
+                var celdaNombre = document.createElement("td");
+                celdaNombre.textContent = objeto.nombre;
+                var celdaCantidad = document.createElement("td");
+                celdaCantidad.textContent = objeto.cantidad;
+                var celdaValor = document.createElement("td");
+                celdaValor.textContent = objeto.valor;
+                var celdaTotal = document.createElement("td");
+                celdaTotal.textContent = objeto.total;
+
+                var celdaEliminar = document.createElement("td");
+                var botonEliminar = document.createElement("button");
+                botonEliminar.textContent = "Eliminar";
+                botonEliminar.addEventListener("click", function () {
+                    eliminarFila(fila);
+                });
+                celdaEliminar.appendChild(botonEliminar);
+
+                fila.appendChild(celdaNombre);
+                fila.appendChild(celdaCantidad);
+                fila.appendChild(celdaValor);
+                fila.appendChild(celdaTotal);
+                fila.appendChild(celdaEliminar);
+
+                cuerpoTabla.appendChild(fila);
+            });
+        };
+    </script>
+</body>
+
+</html>
+
+

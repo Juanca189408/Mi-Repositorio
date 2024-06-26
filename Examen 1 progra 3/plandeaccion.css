@@ -1,0 +1,40 @@
+.topnav {
+    background-color: #38b119;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .topnav a {
+    display: inline-block; 
+    color: #f2f2f2;
+    text-align: center; 
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  .topnav a:hover {
+    background-color: #5cf504f3;
+    color: rgb(255, 255, 255);
+  }
+  
+  .topnav .icon {
+    display: none;
+  }
+  body {
+    background-color: #36ff047e;
+
+  }
+  h2{
+    text-align: center;
+    color:#ffffff;
+    background-color: #0000003f;
+    
+  }
+  article{
+    margin: 50px auto;
+    padding: 50px;
+    background-color: #ffffff;
+    border-radius: 100px;
+    box-shadow: 0 2px 4px rgb(0, 0, 0);
+    max-width: 800px;
+  }

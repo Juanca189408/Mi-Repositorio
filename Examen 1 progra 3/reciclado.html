@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .grid-item {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container" id="infoGrid">
+        <!-- Aquí se mostrará la información -->
+    </div>
+
+    <script>
+        window.onload = function() {
+            cargarTablaDesdeHTML();
+        };
+
+        function agregarObjeto() {
+            var nombre = document.getElementById("nombre").value;
+            var cantidad = document.getElementById("cantidad").value;
+
+            if (!nombre) {
+                alert("Por favor, seleccione un objeto de vidrio válido.");
+                return;
+            }
+
+            var gridContainer = document.getElementById("infoGrid");
+
+            var nombreDiv = document.createElement("div");
+            nombreDiv.textContent = nombre;
+            nombreDiv.classList.add("grid-item");
+
+            var cantidadDiv = document.createElement("div");
+            cantidadDiv.textContent = cantidad;
+            cantidadDiv.classList.add("grid-item");
+
+            gridContainer.appendChild(nombreDiv);
+            gridContainer.appendChild(cantidadDiv);
+
+            document.getElementById("nombre").selectedIndex = 0;
+            document.getElementById("cantidad").value = "";
+        }
+
+        function cargarTablaDesdeHTML() {
+            var objetos = document.querySelectorAll("#formulario select option:checked");
+            objetos.forEach(function(objeto) {
+                var nombre = objeto.textContent;
+                var cantidad = document.getElementById("cantidad").value;
+
+                var gridContainer = document.getElementById("infoGrid");
+
+                var nombreDiv = document.createElement("div");
+                nombreDiv.textContent = nombre;
+                nombreDiv.classList.add("grid-item");
+
+                var cantidadDiv = document.createElement("div");
+                cantidadDiv.textContent = cantidad;
+                cantidadDiv.classList.add("grid-item");
+
+                gridContainer.appendChild(nombreDiv);
+                gridContainer.appendChild(cantidadDiv);
+            });
+        }
+    </script>
+</body>
+</html>

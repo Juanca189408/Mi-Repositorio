@@ -1,0 +1,53 @@
+body{
+    background-color: #ff01017a;
+}
+h1 {
+    text-align: center;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    text-align: center;
+}
+
+button {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #ffffff;
+}
+
+input[type="text"],
+input[type="number"],
+button {
+    margin-right: 10px;
+}
+
+.alert {
+    color: rgba(255, 0, 0, 0.185);
+    font-weight: bold;
+}
+p{
+    text-align: center;
+
+}
