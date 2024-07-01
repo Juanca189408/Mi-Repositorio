@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrícula - Matrícula Universitaria</title>
+    <link rel="stylesheet" href="matricula.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="perfil.html">Perfil del Estudiante</a></li>
+            </ul>
+        </nav>
+    </header>
+    <header>
+        <h1>Matrícula Universitaria</h1>
+    </header>
+
+    <main>
+        <section id="carreras">
+            <h2>Selecciona una Carrera</h2>
+            <select id="selectCarreras" onchange="mostrarMaterias()">
+                <option value="">Selecciona una carrera</option>
+                <option value="informatica">Ingeniería Informática</option>
+                <option value="biologia">Biología</option>
+                <option value="arquitectura">Arquitectura</option>
+                <option value="derecho">Derecho</option>
+                <option value="medicina">Medicina</option> 
+                <option value="economia">Economía</option> 
+              
+            </select>
+        </section>
+
+        <section id="materias">
+            <h2>Materias Disponibles</h2>
+            <div id="materiasContainer">
+                
+            </div>
+            <br>
+            <button onclick="matricular()">Matricularse</button>
+        </section>
+
+        <section id="mensajeMatricula" style="display: none;">
+            <h2>Resumen de Matrícula</h2>
+            <div id="resumenMatricula">
+               
+            </div>
+            <br>
+            <button onclick="irAPago()">Ir a Pago</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

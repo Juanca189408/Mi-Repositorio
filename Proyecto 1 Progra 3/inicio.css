@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 0; 
+    background-image: url('UPI.png');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment:local; 
+}
+
+header {
+    background-color: #0a97f5; 
+    color: #080808; 
+    padding: 10px 0;
+    text-align: center;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: #fffdfd;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #37447c; 
+}
+
+main {
+    text-align: center;
+    margin-top: 20px;
+}
+
+main h1 {
+    font-size: 28px;
+    color: #131212;
+}
+
+
