@@ -1,0 +1,112 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    background-image: url('blanco.png');
+    background-size:unset; 
+    background-repeat:initial;
+    background-attachment:scroll; 
+}
+
+header {
+    background-color: #0a97f594;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    text-decoration:underline;
+    font-size:25px;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff2a;
+    border: 1px solid #00a2ff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    
+}
+
+h2 {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0a49f5;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0a97f5;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 10px auto;
+}
+
+input, button {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+
+#perfil {
+    display: none; 
+}
+
+aside {
+    background-color: #0798f8b0; 
+    color: #ffffff; 
+    padding: 5px 0;
+    text-align: right;
+}
+
+aside nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+aside nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+aside nav ul li a {
+    color: #fffdfd;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+aside nav ul li a:hover {
+    color: #000000;
+}

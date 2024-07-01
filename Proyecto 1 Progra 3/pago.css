@@ -1,0 +1,83 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; 
+}
+
+header {
+    background-color: #333;
+    color: #fff; 
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+
+#resumenMatricula {
+    text-align: center;
+}
+
+#materiasMatriculadas {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+#totalAPagar, #carreraUniversitaria {
+    margin-top: 10px;
+}
+
+
+#opcionesPago {
+    text-align: center;
+}
+
+#opcionesPago p {
+    margin-bottom: 10px;
+}
+
+#selectOpcionesPago {
+    padding: 8px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

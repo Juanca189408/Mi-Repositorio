@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago - Matrícula Universitaria</title>
+    <link rel="stylesheet" href="pago.css">
+</head>
+<body>
+    <header>
+        <h1>Pago de Matrícula</h1>
+    </header>
+
+    <main>
+        <section id="resumenMatricula">
+            <h2>Resumen de Matrícula</h2>
+            <div id="materiasMatriculadas">
+            </div>
+
+            <div id="totalAPagar">
+            </div>
+            <div id="carreraUniversitaria">
+            </div>
+        </section>
+
+        <section id="opcionesPago">
+            <h2>Opciones de Pago</h2>
+            <p>Selecciona una opción de pago:</p>
+            <select id="selectOpcionesPago">
+                <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                <option value="transferencia">Transferencia Bancaria</option>
+                <option value="Sinpe">Sinpe</option>
+                <option value="Letra de Cambio">Letra de Cambio</option>
+            </select>
+            <button onclick="realizarPago()">Pagar</button>
+        </section>
+
+        <section id="lapseoPago" style="display: none;">
+            <h2>Lapso de Pagos</h2>
+            <p id="lapseoInfo"></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
