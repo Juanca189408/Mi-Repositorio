@@ -1,0 +1,56 @@
+﻿.candidates-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://www.mundiario.com/asset/thumbnail,1280,720,center,center/media/mundiario/images/2023/06/15/2023061518551620679.png);
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.candidato {
+    text-align: center;
+    margin: 10px; 
+    padding: 15px; 
+    border: 2px solid #007bff;
+    border-radius: 8px; 
+    width: 200px; 
+    background-color: rgba(255, 0, 0, 0.5); 
+}
+
+
+.candidato-1 {
+    background-color: #dc3545;
+}
+
+.candidato-2 {
+    background-color: #28a745;
+}
+
+.candidato-3 {
+    background-color: #ffc107;
+    
+}
+
+.candidato img {
+    width: 100%; 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-bottom: 10px; 
+}
+
+
+.candidato h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+
+

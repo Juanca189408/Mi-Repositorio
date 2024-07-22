@@ -1,0 +1,12 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(https://www.larepublica.net/storage/images/2021/08/16/20210816152636.candidatos-web.x2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
